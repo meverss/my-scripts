@@ -1,0 +1,37 @@
+TO INSTALL
+----------
+tmux	(Terminal Multiplexor)
+fzf	(Fussy Finder)
+bat	(A <cat> clone with syntax highlighting and Git integration.)
+
+Upload to a repository
+----------------------
+git init
+git remote add origin remote repository URL
+git remote add origin https://github.com/marvines/barracuda
+git remote -v
+git push -f origin master
+
+Compres and decomoress archives
+-------------------------------
+* Compress
+ tar cvzf file.tar.gz
+
+* Decompress
+ tar xvzf file.tar.gz
+
+Show path of a file
+-------------------
+realpath <archivo>
+
+Truncate with command <tr> (Cool)
+---------------------------------
+tr (see man pages)
+
+Generate random permutations
+----------------------------
+shuf (see man pages)
+
+
+
+
