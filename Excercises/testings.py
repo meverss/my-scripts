@@ -1,0 +1,1 @@
+inp = raw_input("Enter your name:")
