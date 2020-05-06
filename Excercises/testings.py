@@ -1,1 +1,3 @@
-inp = raw_input("Enter your name:")
+#from string import punctuation
+import string
+print(string.ascii_letters)
