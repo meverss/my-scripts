@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 english = ((input('English: ')))
 piglatin = ''
 pl_word = ''

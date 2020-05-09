@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 phrase = input()
 num = list(range(11))
 new_phrase = list(phrase)

@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 #Journey from work to home:
 
 distance = 20

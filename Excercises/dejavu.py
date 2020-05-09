@@ -1,11 +1,8 @@
-text = input()
-#chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-text = list(text)
+text = list(input())
 stat = ''
 
 i=0
 while i <= (len(text) - 2):
-#  if text[i] in chars:
   if text[i] == text[i + 1]:
       stat = 'dejavu'
       break

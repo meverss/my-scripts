@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 time = input()
 time = time.upper()
 time = time.split(":")

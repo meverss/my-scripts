@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 pwd = input()
 import itertools  #Modulo para hacer combinaciones
 

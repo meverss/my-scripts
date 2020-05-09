@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 text = input()
 text = list(text)
 chars = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ')

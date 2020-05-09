@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 casino = input()
 status = ''
 

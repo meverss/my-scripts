@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 lenght = int(input())
 list = 0
 i = 1

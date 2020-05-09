@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 points = int(input())
 squirt = int(input())
 

@@ -1,13 +1,18 @@
+import os
+os.system("clear")
+
+from string import punctuation as symbols, digits
+
 text = input()
-text = list(text [::-1])
-chars = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ')
-dword = ''
+text = text [::-1]
+text = list(text)
 
 i = 0
-while i <= (len(text) - 1):
-  if text[i] in chars:
-    dword += text[i]
+while i <= len(text) - 1:
+  for a in text:
+    if a in symbols or a in digits:
+      text.remove(a)
   i += 1
 
-#text = ''.join(text)
-print(dword)
+text = ''.join(text)
+print(text)

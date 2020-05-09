@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 hc = int(input())
 hc_month = 10
 hc_build_cost = 2000000

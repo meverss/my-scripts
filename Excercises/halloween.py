@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 houses = int(input())
 
 #your code goes here

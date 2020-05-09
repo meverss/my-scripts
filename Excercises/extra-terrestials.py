@@ -1,3 +1,6 @@
+import os
+os.system("clear")
+
 text = input()
 alien_text = text.split(" ")
 
