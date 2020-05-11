@@ -5,7 +5,7 @@ Last Update:	Wed May 6 23:56:59 CDT 2020
 
 Description:	This is a simple code to encrypt texts.
 """
-import os, colors
+import os,colors
 os.system("clear")
 
 from string import punctuation as symbols, digits
@@ -23,5 +23,6 @@ def encrypted(msg):
   msg = tmp
   return msg
 
-text = green(input('Enter text: '))
-print(encrypted(text))
+text = input('Enter text: ')
+print(colors.color(encrypted(text),bg='blue',fg='black',style='faint'))
+print("Hola!")
