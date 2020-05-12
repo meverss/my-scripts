@@ -7,47 +7,55 @@ clear
 sudoku = []
 row  = ''
 
-#rng = []
-#for i in range(1,10):
-#  rng.append(i)
+class Sudoku():
 
-i = 0
-while i <= 8:
-  rng = str(123456789)
-#  row = (rng[0:3] +  rng[3:6] +  rng[6:])#.split(" ")
-  row = (f"{rng[0:3]} {rng[3:6]} {rng[6:]}").split(" ")
+  def check1():
 
-  r = 0
-  while r <= 2:
-    row[r] = list(row[r])
-    r += 1
-  shuffle(row)
-  sudoku.append(row)
-  print(int(row[0][0]) + int(row[0][1]) + int(row[0][2]))
-  i += 1
+    i = 0
+    while i <= 8:
+      rnd = str(123456789)
+      row = (f"{rnd[0:3]} {rnd[3:6]} {rnd[6:]}").split(" ")
 
-block0 = (f"{sudoku[0][0][0]} {sudoku[0][0][1]} {sudoku[0][0][2]} \
-            {sudoku[1][0][0]} {sudoku[1][0][1]} {sudoku[1][0][2]} \
-            {sudoku[2][0][0]} {sudoku[2][0][1]} {sudoku[2][0][2]}").split(" ")
 
-#print(block0)
 
-def check1():
-  if any(x in rng for x in block0):
-    return True
-  else:
-    return False
+      r = 0
+      while r <= 2:
+        row[r] = list(row[r])
+        r += 1
+      shuffle(row)
+      sudoku.append(row)
+      i += 1
 
-print(check1())
+    block0 = (f"{sudoku[0][0][0]} {sudoku[0][0][1]} {sudoku[0][0][2]} \
+                {sudoku[1][0][0]} {sudoku[1][0][1]} {sudoku[1][0][2]} \
+                {sudoku[2][0][0]} {sudoku[2][0][1]} {sudoku[2][0][2]}").split(" ")
 
-while check1() == True:
-  shuffle(sudoku[0])
+    if all(x in block0 for x in rnd):
+      return True
+    else:
+      for a in row:
+        print(a)
+        print()
+      return False
+
+while Sudoku.check1() == False:
+#  row[0]=list(''.join(row[0]))
+#  shuffle(row[0][0])
+  print(Sudoku.check1())
+#  shuffle(sudoku[0])
 #  shuffle(sudoku[1])
 #  shuffle(sudoku[2])
 #  sudoku[0][0] + sudoku[0][1] + sudoku[0][2] + sudoku[1][0] + sudoku[1][1] + sudoku[1][2] + sudoku[2][0] + sudoku[2][1] + sudoku[2][2]
-#  check1()
-  print(sudoku[0])
+
+#  print(row[0])
+#  print(row[1])
+#  print(row[2])
+#  print()
+
+  system("sleep 2")
+  Sudoku.check1()
+
 #### PRINT SUDOKU
 
-for a in sudoku:
-  print(a)
+#for a in row:
+#  print(a)
