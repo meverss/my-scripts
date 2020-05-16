@@ -1,15 +1,25 @@
-from passlib.hash import pbkdf2_sha256
-import locale
+from passlib.hash import pbkdf2_sha256 as pwd
+from getpass import getpass
+from os import system
+from colored import fg, bg, attr
 
-hash = '$pbkdf2-sha256$29000$k3LO.V8r5ZxzLgVgjLHW2g$nhE7Fs7VzUnao/QyczWMQkt2DdtzNlZxRonPjtz/Hcs'
+clear = system("clear")
 
-while True:
-  password = input("Password: ")
-  if pbkdf2_sha256.verify(password, hash) == True:
-    print("ACCESS GRANTED")
-    break
-  else:
-    print("ACESS DENIED")
+p = (f"{attr(0)}{fg(72)}")
+ad = (f"{attr(0)}{fg(124)}")
+ag = (f"{attr(0)}{fg(35)}")
+
+hash = '$pbkdf2-sha256$29000$RcjZu7d2bu1d653TWuu9Nw$P.as1TpMwwJ3b/CLL7tFzt5p5jcq6MuOz783QoYahBQ'
+
+password = getpass(f"{p}Password: ")
+
+if pwd.verify(password, hash) == True:
+  print(f"{ag}ACCESS GRANTED")
+  system("sleep 0.5")
+else:
+  print(f"{ad}ACESS DENIED")
+  system("sleep 1")
+  exec(open(__file__).read())
 
 #generate new salt, and hash a password
 #hash = pbkdf2_sha256.hash("toomanysecrets")

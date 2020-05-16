@@ -7,36 +7,45 @@ format (h:m)
 """
 
 from os import system
-#from colored import fg, bg, attr
+from colored import fg, bg, attr
 
-cls = system("clear")
+clear = system("clear")
 
-m = int(input("Enter time in minutes: "))
+## COLORS
+question = (f"{fg(130)}")
+error = (f"{fg(125)}")
+normal = (f"{attr(0)}")
 
-def convert(mins):
-  def Time():
-    formula = float(((mins//60)+((mins//60)*(mins-60*(mins//60)))/(mins//60*100)))
-    formula = (f"{formula:.2f}") ## Here '.2f' turns it into a float end adds 2 decimals
-    h_time = str(formula).split(".")
-    return h_time
+def convert(minutes):
 
-  if mins >= 60 and mins < 1440:
-#    Time()
-    h_time = Time()
-    time = (f"{h_time[0]}h:{h_time[1]}m")
-    return (time)
-  elif mins >= 1440:
-    h_time = Time()
-    if int(h_time[0]) >= 24:
-      h_time[0] = int(h_time[0])
-      hours = int(h_time[0])
-      formula = float(((hours//24)+((hours//24)*(hours-24*(hours//24)))/(hours//24*100)))
+  def base_time():
+    formula = float((minutes//60)+((minutes//60)*(minutes-60*(minutes//60)))/(minutes//60*100))
+    formula = (f"{formula:.2f}") ## Here '.2f' forces to always show two decimals
+    h_base_time = str(formula).split(".")
+    return h_base_time
+
+  if minutes >= 60 and minutes < 1440:
+    h_base_time = base_time()
+    base_time = (f"{h_base_time[0]}h:{h_base_time[1]}m")
+    return (base_time)
+  elif minutes >= 1440:
+    h_base_time = base_time()
+    if int(h_base_time[0]) >= 24:
+      h_base_time[0] = int(h_base_time[0])
+      hours = int(h_base_time[0])
+      formula = float((hours//24)+((hours//24)*(hours-24*(hours//24)))/(hours//24*100))
       formula = (f"{formula:.2f}")
-      d_time = str(formula).split(".")
-      time = (f"{d_time[0]}d:{d_time[1]}h:{h_time[1]}m")
-    return (time)
+      d_base_time = str(formula).split(".")
+      base_time = (f"{d_base_time[0]}d:{d_base_time[1]}h:{h_base_time[1]}m")
+      return (base_time)
   else:
-    time = (f"{mins}m")
-    return (time)
+    base_time = (f"{minutes}m")
+    return (base_time)
 
-print(convert(m))
+try:
+  m = int(input(f"{question}Enter time in minutes: {normal}"))
+  print(convert(m))
+except ValueError:
+  print(f"{error}Type an integer value{normal}")
+  system("sleep 2")
+  exec(open(__file__).read())
