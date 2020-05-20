@@ -17,8 +17,9 @@ if pwd.verify(password, hash) == True:
   print(f"{ag}ACCESS GRANTED")
   system("sleep 0.5")
 else:
+  clear
   print(f"{ad}ACESS DENIED")
-  system("sleep 1")
+  system("sleep 0.5")
   exec(open(__file__).read())
 
 #generate new salt, and hash a password
