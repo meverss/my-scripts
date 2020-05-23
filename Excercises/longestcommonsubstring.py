@@ -1,18 +1,27 @@
-string = input().split(" ")
-wlist = []
-for a in range(len(string)):
-  for i in string[a]:
-    if i == i.upper() and string[a].index(i) != 0:
-      string[a] = list(string[a])
-      string[a].insert(string[a].index(i)," ")
-      string[a] = ''.join(string[a])
+import re
+string = input('Enter list: ').split(" ")
+plist = []
+sp = ''
+length = []
 
-string = ' '.join(string)
-a_string = string.split(" ")
+## Seek for the longest length
+for ml in string:
+  length.append(len(ml))
+maxlen = max(length)
 
-for x in range(len(a_string)):
-  if string.count(a_string[x]) >= 2:
-    wlist.append(a_string[x])
+## Create a list with all patterns
+for x in range(maxlen):
+  for a in range(len(string)):
+    for i in string[a][x::]:
+      if all(re.search(sp,ind) for ind in string):
+        if sp != '':
+          plist.append(f"{sp}")
+      sp += i
+    sp = ''
 
-wlist.sort()
-print(wlist[0])
+## Seek for the Longest Common Substring
+plist = list(set(plist))
+plist.sort(key=len, reverse=True)
+pattern = plist[0]
+
+print(plist)

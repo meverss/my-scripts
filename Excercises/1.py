@@ -1,16 +1,21 @@
-def find_common_characters(msg1,msg2):
-    l=[]
-    msg11=msg1.replace(" ", "")
-    msg22=msg2.replace(" ", "")
-    for letter in msg11:
-        if letter in msg22:
-            l.append(letter)
-            if len(l)!=0:
-                return "".join(l)
-            else:
-                return -1
+## LONGEST SUBSTRING
 
-msg1="SoloLearn"# Learning LearningIsFun Learnable"
-msg2="Learning"
-common_characters=find_common_characters(msg1,msg2)
-print(common_characters)
+def long_substr(data):
+    substr = ''
+    if len(data) > 1 and len(data[0]) > 0:
+        for i in range(len(data[0])):
+            for j in range(len(data[0])-i+1):
+                if j > len(substr) and is_substr(data[0][i:i+j], data):
+                    substr = data[0][i:i+j]
+    return substr
+
+def is_substr(find, data):
+    if len(data) < 1 and len(find) < 1:
+        return False
+    for i in range(len(data)):
+        if find not in data[i]:
+            return False
+    return True
+
+string = input().split(" ")
+print(long_substr(string))
