@@ -15,7 +15,8 @@ Sample Input:
 9S 10H JC AC KH
 """
 
-cards = (input().upper()) or 'QS 10S JS AS KS'.split(' ')
+cards = input().upper() or 'QS 10S JS AS KS'
+cards = cards.split(' ')
 
 def check_hand(hand):
   values = ['2','3','4','5','6','7','8',

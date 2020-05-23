@@ -42,10 +42,12 @@ def convert(minutes):
     base_time = (f"{minutes}m")
     return (base_time)
 
-try:
-  m = int(input(f"{question}Enter time in minutes: {normal}"))
-  print(convert(m))
-except ValueError:
-  print(f"{error}Type an integer value{normal}")
-  system("sleep 2")
-  exec(open(__file__).read())
+if __name__ == '__main__':
+
+  try:
+    m = int(input(f"{question}Enter time in minutes: {normal}"))
+    print(convert(m))
+  except ValueError:
+    print(f"{error}Type an integer value{normal}")
+    system("sleep 2")
+    exec(open(__file__).read())
