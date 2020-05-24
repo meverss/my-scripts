@@ -10,18 +10,13 @@ The points that you move between are marked with a P and the spaces in between a
 Sample Input:
 XPXXX,XXXXX,XXXXX,XXXPX,XXXXX
 """
-from colored import fg, bg, attr
 from os import system
 clear = system("clear")
 
-start = (f"{fg(48)}{attr(1)}")
-path = (f"{fg(238)}")
-end = (f"{fg(162)}{attr(1)}")
-n = (f"{fg(250)}")
 cidx = []
 ridx = []
 
-map2d = input('Draw your map: ').upper() or 'XPXXX,XXXXX,XXXXX,XXXPX,XXXXX'.upper()
+map2d = input('Draw your map: ').upper() or 'XXXxX,xxxXp,xXXXX,XXXXX,pXxXX'.upper()
 
 class MyMap():
 
@@ -40,13 +35,13 @@ class MyMap():
       if sline == True:
         if 'P' not in smap[a] and pos != 0:
           smap[a] = list(smap[a])
-          smap[a][p[0][1]] = f'{path}X{n}' if len(l) == 0 else f'{n}X'
+          smap[a][p[0][1]] = f'⬜'if len(l) == 0 else '⬛'
           smap[a] = ''.join(smap[a])
-          print(f"{n}{smap[a]}")
+          print(smap[a].replace('X','⬛'))
 
         elif 'P' in smap[a] and pos == 0:
           p.append([a,smap[a].index('P')])
-          print(f"{n}"+smap[a].replace('P',f"{start}P{n}"))
+          print(smap[a].replace('P',"🅰").replace('X','⬛'))
           pos = 1
 
         elif 'P' in smap[a] and pos == 1:
@@ -55,34 +50,34 @@ class MyMap():
           l.append(p[1][1])
           smap[a] = list(smap[a])
           if l[0] < l[1]:
-            smap[a][l[0]] = f'{path}X'
+            smap[a][l[0]:l[1]] = '⬜'*(l[1]-l[0])
           elif l[0] > l[1]:
-            smap[a][l[1]+1] = f'{path}X'
+            smap[a][l[1]+1:l[0]+1] = '⬜'*(l[0]-l[1])
             if l[0] < 4:
-              smap[a][l[0]+1] = f'{n}X'
+              smap[a][l[1]+1:l[0]+1] = '⬜'*(l[0]-l[1])
           smap[a] = ''.join(smap[a])
-          print(smap[a].replace('P',f'{end}P{n}'))
+          print(smap[a].replace('P','🅱').replace('X','⬛'))
 
         else:
-          print(f"{n}{smap[a]}")
+          print(smap[a].replace('X','⬛'))
 
       elif sline == False:
         if 'P' in smap[a]:
           p.append(smap[a].index('P'))
           p.append(smap[a].rindex('P'))
           smap[a] = list(smap[a])
-          smap[a][p[0]] = f'{start}P{path}'
-          smap[a][p[1]] = f'{end}P{n}'
+          smap[a][p[0]] = '🅰'
+          smap[a][p[0]+1:p[1]+1] = '⬜'*(p[1]-p[0])
+          smap[a][p[1]] = '🅱'
           smap[a] = ''.join(smap[a])
-          print(f"{n}{smap[a]}")
-
+          print(smap[a].replace('X','⬛'))
         else:
-          print(f"{n}{smap[a]}")
+          print(smap[a].replace('X','⬛'))
 
-    print(f'\n{fg(130)}{attr(4)}LEGEND:{attr(0)}')
-    print(f"{start}P{attr(0)} - Start point")
-    print(f"{end}P{attr(0)} - End point")
-    print(f"{bg(238)} {attr(0)} - Choosen path")
+    print(f'\nLEGEND:')
+    print(f"🅰 - Start point")
+    print(f"🅱 - End point")
+    print(f"⬛ - Choosen path (Same steps no matter which path you choose)")
 
   def steps(mymap):
     mymap = mymap.split(',')
@@ -107,7 +102,6 @@ class MyMap():
       steps = cidx[1] - cidx[0]
 
     return steps
-# ================================ #
 
 MyMap.drawmap(map2d)
-print(f"\nGone from {start}{bg(238)} P {attr(0)} to {end}{bg(238)} P {attr(0)} in {MyMap.steps(map2d)} steps.")
+print(f"\nGone from 🅰 to 🅱 in {MyMap.steps(map2d)} steps.")
