@@ -15,7 +15,7 @@ Sample Input:
 9S 10H JC AC KH
 """
 
-cards = input().upper() or 'QS 10S JS AS KS'
+cards = input().upper() or '6S 10d Jh AS kS'.upper()
 cards = cards.split(' ')
 
 def check_hand(hand):
@@ -29,12 +29,9 @@ def check_hand(hand):
   st = list(values.index(hand[x][:-1]) for x in range(5))
   st.sort()
   straight = st[0] == st[1]-1 == st[2]-2 == st[3]-3 == st[4]-4
-  c1 = f"{hand[0][:-1]}{ssuites[suites.index(hand[0][-1])]}"
-  c2 = f"{hand[1][:-1]}{ssuites[suites.index(hand[1][-1])]}"
-  c3 = f"{hand[2][:-1]}{ssuites[suites.index(hand[2][-1])]}"
-  c4 = f"{hand[3][:-1]}{ssuites[suites.index(hand[3][-1])]}"
-  c5 = f"{hand[4][:-1]}{ssuites[suites.index(hand[4][-1])]}"
-  myhand = [c1, c2, c3, c4, c5]
+  myhand = []
+  for mh in range(5):
+    myhand.append(f"{hand[mh][:-1]}{ssuites[suites.index(hand[mh][-1])]}")
   myhand.sort(key=(lambda x: values.index(x[:-2])))
   myhand = ' '.join(myhand)
   print(myhand)
