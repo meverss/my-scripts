@@ -41,7 +41,7 @@ class MyMap():
 
         elif 'P' in smap[a] and pos == 0:
           p.append([a,smap[a].index('P')])
-          print(smap[a].replace('P',"🅰️").replace('X','⬛'))
+          print(smap[a].replace('P',"⭕").replace('X','⬛'))
           pos = 1
 
         elif 'P' in smap[a] and pos == 1:
@@ -56,7 +56,7 @@ class MyMap():
             if l[0] < 4:
               smap[a][l[1]+1:l[0]+1] = '⬜'*(l[0]-l[1])
           smap[a] = ''.join(smap[a])
-          print(smap[a].replace('P','🅱️').replace('X','⬛'))
+          print(smap[a].replace('P','🔴').replace('X','⬛'))
 
         else:
           print(smap[a].replace('X','⬛'))
@@ -66,17 +66,17 @@ class MyMap():
           p.append(smap[a].index('P'))
           p.append(smap[a].rindex('P'))
           smap[a] = list(smap[a])
-          smap[a][p[0]] = '🅰️'
+          smap[a][p[0]] = '⭕'
           smap[a][p[0]+1:p[1]+1] = '⬜'*(p[1]-p[0])
-          smap[a][p[1]] = '🅱️'
+          smap[a][p[1]] = '🔴'
           smap[a] = ''.join(smap[a])
           print(smap[a].replace('X','⬛'))
         else:
           print(smap[a].replace('X','⬛'))
 
     print(f'\nLEGEND:')
-    print(f"🅰️ - Start point.")
-    print(f"🅱️ - End point.")
+    print(f"⭕ - Start point.")
+    print(f"🔴 - End point.")
     print(f"⬜ - Choosen path (Same steps no matter which path you choose)")
 
   def steps(mymap):
@@ -105,4 +105,4 @@ class MyMap():
 
 print(map2d)
 MyMap.drawmap(map2d)
-print(f"\nWent from 🅰️ to 🅱️ in {MyMap.steps(map2d)} steps.")
+print(f"\nWent from ⭕ to 🔴 in {MyMap.steps(map2d)} steps.")
