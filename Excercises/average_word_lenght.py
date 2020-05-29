@@ -9,6 +9,7 @@ words = essay
 for i in signs:
   words = words.split(i)
   words = ''.join(words)
+
 words = words.split(" ")
 
 print(len(words))
@@ -21,6 +22,5 @@ average = (math.ceil(lenghts / len(words)))
 
 print(words)
 print(average)
-
 
 

@@ -1,12 +1,17 @@
-from math import pi
+from decimal import Decimal, getcontext
+
 num = int(input())
-a = f"{float(pi):.{num*2}f}"
-print(f"{-(num)}")
-#a = '3.1415926535897932384626433832795028841971693\
-993751058209749445923078164062862089986280348253421\
-170679821480865132823066470938446095505822317253594\
-081284811174502841027019385211055596446229489549303\
-819644288109756659334461284756482337'
-a = str(a).split('.')
-print(a)
-print(f'{a[1][num+1]}')
+def pi():
+  getcontext().prec=1000
+  pi = (sum(1/Decimal(16)**k *
+             (Decimal(4)/(8*k+1) -
+              Decimal(2)/(8*k+4) -
+              Decimal(1)/(8*k+5) -
+              Decimal(1)/(8*k+6))
+    for k in range(1000)))
+  return pi
+
+dec = str(pi()).split('.')
+print(dec)
+if 1000 > num > 0:
+  print(dec[1][num-1])

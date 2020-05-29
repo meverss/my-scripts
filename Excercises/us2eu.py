@@ -8,7 +8,7 @@ m = ['January','February','March','April','May',\
 
 if "/" in date:
  date = date.split("/")
- eu = (str(date[1]) + "/" + str(date[0]) + "/" + str(date[2]))
+ eu = (f"{str(date[1])}/{str(date[0])}/{str(date[2])}")
  print(eu)
 
 elif "," in date:
@@ -18,7 +18,7 @@ elif "," in date:
   date[1] = ''.join(date[1])
   if date[0] in m:
     month = m.index(date[0]) + 1
-    eu = (str(date[1]) + "/" + str(month) + "/" + str(date[2]))
+    eu = (f"{str(date[1])}/{str(month)}/{str(date[2])}")
     print(eu)
 
 
