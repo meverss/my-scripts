@@ -1,2 +1,3 @@
-n = input().replace(" ","")
-print(n)
+from cmd import Cmd
+Cmd.intro = 'Testing...'
+print(Cmd.intro)

@@ -1,5 +1,5 @@
 """
-Title:        time_converter
+Title:        Time Converter
 Author:       MeVeRs
 Description:
 This code converts time in minutes into hours and minutes
@@ -20,7 +20,7 @@ def convert(minutes):
 
   def base_time():
     formula = float((minutes//60)+((minutes//60)*(minutes-60*(minutes//60)))/(minutes//60*100))
-    formula = (f"{formula:.2f}") ## Here '.2f' forces to always show two decimals
+    formula = (f"{formula:.2f}")
     h_base_time = str(formula).split(".")
     return h_base_time
 
@@ -36,11 +36,11 @@ def convert(minutes):
       formula = float((hours//24)+((hours//24)*(hours-24*(hours//24)))/(hours//24*100))
       formula = (f"{formula:.2f}")
       d_base_time = str(formula).split(".")
-      base_time = (f"{d_base_time[0]}d:{d_base_time[1]}h:{h_base_time[1]}m")
-      return (base_time)
+      time = (f"{d_base_time[0]}d:{d_base_time[1]}h:{h_base_time[1]}m")
+      return (time)
   else:
-    base_time = (f"{minutes}m")
-    return (base_time)
+    time = (f"{minutes}m")
+    return (time)
 
 if __name__ == '__main__':
 

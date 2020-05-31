@@ -1,7 +1,7 @@
 num = int(input())
-f1 = 
+def Q(n):
+  x = 0
+  x = (num-Q(n-1))+Q(x-Q(x-2))
+  return x
 
-Q(x-Q(x-1))+Q(x-Q(x-2))
-
-q(x*x-x-q*x+q)
-q(x**2-x-qx+q)
+print(Q(num))
