@@ -29,7 +29,7 @@ e_days = int(ee_date[0])
 
 if s_year != e_year:
   for y in range(s_year + 1, e_year):
-    if y % 4 == 0:
+    if y % 4 == 0 and y % 100 != 0 or y % 400 == 0:
       days += 366
     else:
       days += 365
