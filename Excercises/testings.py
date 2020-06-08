@@ -1,6 +1,14 @@
-from string import ascii_lowercase as low
+from functools import lru_cache as cache
+import sys
+#sys.setrecursionlimit(10**6)
+
 num = int(input())
-if 1 <= num <= 26:
-  low = list(low[x] for x in range(len(low))[:num])
-  low = ''.join(low[::-1])
-print(low)
+#@cache(1000)
+def q(num):
+  if num == 1 or num == 2:
+    return 1
+  else:
+    return q(num - q(num-1)) + q(num - q(num-2))
+
+print(q(num))
+fib.cache_info()

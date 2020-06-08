@@ -8,6 +8,7 @@ format (h:m)
 
 from os import system
 from colored import fg, bg, attr
+from functools import lru_cache as cache
 
 clear = system("clear")
 
@@ -17,7 +18,7 @@ error = (f"{fg(125)}")
 normal = (f"{attr(0)}")
 
 def convert(minutes):
-
+  @cache(10)
   def base_time():
     formula = float((minutes//60)+((minutes//60)*(minutes-60*(minutes//60)))/(minutes//60*100))
     formula = (f"{formula:.2f}")
