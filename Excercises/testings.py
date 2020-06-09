@@ -1,14 +1,9 @@
-from functools import lru_cache as cache
-import sys
-#sys.setrecursionlimit(10**6)
-
-num = int(input())
-#@cache(1000)
-def q(num):
-  if num == 1 or num == 2:
-    return 1
-  else:
-    return q(num - q(num-1)) + q(num - q(num-2))
-
-print(q(num))
-fib.cache_info()
+nums = input().split()
+#a = []
+nums = list(int(x) for x in nums)
+ld = []
+for var in range(2):
+  ld.append(list(f'{nums[var] / x:.1f}' for x in range(1,10)))
+mcd = list(filter(lambda x: x in ld[1], ld[0]))
+mcd = int(max(list(float(x) for x in mcd)))
+print(f'{str(int(nums[0] / mcd))} {str(int(nums[1] / mcd))}')

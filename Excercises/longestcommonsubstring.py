@@ -2,11 +2,10 @@ import re
 string = input('Enter list: ').split(" ")
 plist = []
 sp = ''
-length = []
 
 ## Seek for the longest length
-for ml in string:
-  length.append(len(ml))
+length = list(len(string[x]) for x in range(len(string)))
+length = [int(length[x]) for x in range(len(length))]
 maxlen = max(length)
 
 ## Create a list with all patterns
@@ -20,8 +19,7 @@ for x in range(maxlen):
     sp = ''
 
 ## Seek for the Longest Common Substring
-plist = list(set(plist))
+plist = list(dict.fromkeys(plist).keys())
 plist.sort(key=len, reverse=True)
-pattern = plist[0]
 
-print(plist)
+print(plist[0]) if len(plist) > 0 else print('No longest common pattern found.')
