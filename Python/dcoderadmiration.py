@@ -17,14 +17,14 @@ if 1 <= t <= 100:
       for n in alist:
         o = list(n % x == 0 for x in alist if x != n)
 ## --------------------------------
-        co = o.copy()
-        for x in range(len(co)):
-          co[x] = f'{cF}{str(co[x])}{nc}' if co[x] == False else f'{cT}{co[x]}{nc}'
-          check += f'{co[x]} '
-        isodd = f'{codd}({o.count(True)}){nc}' if o.count(True) % 2 != 0 else f'{nc}({o.count(True)})'
-        print(n)
-        print(f'{check} {isodd}')
-        check = ''
+#        co = o.copy()
+#        for x in range(len(co)):
+#          co[x] = f'{cF}{str(co[x])}{nc}' if co[x] == False else f'{cT}{co[x]}{nc}'
+#          check += f'{co[x]} '
+#        isodd = f'{codd}({o.count(True)}){nc}' if o.count(True) % 2 != 0 else f'{nc}({o.count(True)})'
+#        print(n)
+#        print(f'{check} {isodd}')
+#        check = ''
 ## --------------------------------
         if o.count(True) % 2 != 0:
           odds.append(n)

@@ -10,9 +10,7 @@ for a in range(len(r_card)):
 
 for x in range(len(r_card)):
   r_card[x] = int(r_card[x])
-print(r_card)
-print(sum(r_card) % 2)
 if len(card) == 16 and sum(r_card) % 2 == 0:
-  print('valid')
+  print('That\'s a valid credit card number')
 else:
-  print('not valid')
+  print('That\'s NOT a valid credit card number')

@@ -6,7 +6,8 @@ system('clear')
 rlimit(10**6)
 
 num = int(input())
-@cache(1000)
+c = int((10**(len(str(num)))) / 2)
+@cache(c)
 def q(num):
   global tmp
   if num == 1 or num == 2:
