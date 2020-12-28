@@ -9,28 +9,31 @@ for x in range(len(size)):
   size[x] = int(size[x])
 
 colors = ('white','green','red')
-ornates = ('🔵','🔴','⚪')
+ornates = (f"{fg('red')}@{fg('green')}", f"{fg('white')}@{fg('green')}", f"{fg('blue')}@{fg('green')}")
 trunk = (f"{fg(130)}")
 base = (f"{fg(240)}{attr(1)}")
-tree = ''
+tree = f"{fg('green')}"
 
-print(('MERRY CHRISTMAST!!').center(size[1]))
+text = list('MERRY CHRISTMAST!!')
+#text = f"{fg('blue')}MERRY CHRISTMAST!!"
+for x in range(len(text)*2):
+  if x%2 != 0 or x==0:
+    text.insert(x,f"{fg(rnd(1,2))}")
+text = ''.join(text)
+
+
+print(f"{attr(1)}{(text).center(size[1])}")
 print('')
 
 print(('🌟').center(size[1]-5))
 for i in range(2,20,2):
-  if i%4 == 0:
-    tree = f"{fg(colors[rnd(0,2)])}"
-  else:
-    tree = f"{fg('green')}"
-  oldct = '@'*i
+  oldct = f"{('*'*i)}"
   ct = list(oldct)
-  if len(ct) >= 4:
-    ct[rnd(1,len(ct)-2)] = ornates[rnd(0,len(ornates)-1)]
-
+  ct[rnd(1,len(ct)-1)] = ornates[rnd(0,len(ornates)-1)]
   ct = ''.join(ct)
-  print(f"{tree}{(ct).center(size[1]-5)}")
+  ct = tree + ct
+  print((ct).center(82))
 
-print(f"{trunk}{('|||').center(size[1]-3)}")
+print(f"{trunk}{('[|]').center(size[1]-3)}")
 print(base+('\_____/').center(size[1]-3))
 print(size[1]*'-')
