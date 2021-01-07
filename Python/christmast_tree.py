@@ -1,3 +1,12 @@
+"""
+Title:    Christmast Tree
+Author:   MeVeRsS
+                                                           
+Description:
+This script shows a X-Mast Tree, with a random ornament
+every time you run it.
+"""
+
 from colored import fg, bg, attr
 from random import randint as rnd
 from os import popen
