@@ -4,25 +4,13 @@ from os import popen
 clear = popen('clear','r').read()
 print(clear)
 
-nlc,n1,left,l = [],[],[],''
-red = fg('red')
-normal = attr(0)
+red, normal = fg('red'), attr(0)
 
 # Get screen size
-size = popen('stty size', 'r').read().split()
-for x in range(2):
-  size[x] = int(size[x])
+size = list(int(x) for x in popen('stty size', 'r').read().split())
 
-for a in range(1,10):
-  a = str(a)
-  n1.append(a)
-  l  = ''.join(n1)
-  l = int(l)
-  left.append(l)
-
-for x in range(9):
-  formula = left[x]*8+(x+1)
-  nlc.append(f"{left[x]} x {red}8{normal} + {x+1} = {formula}")
-
-for line in nlc:
-  print(line.center(size[1]+10))
+x = ''
+for y in range(1,10):
+  x += str(y)
+  f = int(x)*8+y
+  print((f"{x} x {red}8{normal} + {y} = {f}").center(size[1]+10))
