@@ -3,14 +3,9 @@ from os import popen
 clear = popen('clear','r').read()
 print(clear)
 
-exp = input().split()
-opt = []
+exp = float(input())#.split('$')
 
 for i in range(1,31):
-  for x in range(2):
-    exp[x] = float(exp[x])
-    res = exp[x] * (2 ** i)
-    if i==30:
-      opt.append(res)
-#print()
-print(opt)
+#    exp[1] = float(exp[1])
+    res = exp * (2 ** i)
+print(res)

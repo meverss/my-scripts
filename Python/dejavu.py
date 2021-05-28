@@ -1,16 +1,12 @@
-text = list(input())
+text = input()
 stat = ''
 
 i=0
 while i <= (len(text) - 2):
   if text[i] == text[i + 1]:
-      stat = 'dejavu'
+      stat = 'Deja Vu'
       break
   else:
-      stat = 'unique'
+      stat = 'Unique'
   i += 1
-
-if stat == 'unique':
-  print('Unique')
-elif stat == 'dejavu':
-  print('Deja Vu')
+print(stat)

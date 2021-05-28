@@ -1,5 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/fish
 
+clear
 set hex a b c d e f
 
 for b in (seq (count $b_lang))

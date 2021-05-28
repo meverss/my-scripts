@@ -3,9 +3,7 @@ os.system("clear")
 
 from string import punctuation as symbols, digits
 
-text = input()
-text = text [::-1]
-text = list(text)
+text = list(input())[::-1]
 
 i = 0
 while i <= len(text) - 1:
