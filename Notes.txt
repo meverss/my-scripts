@@ -32,6 +32,9 @@ Generate random permutations
 ----------------------------
 shuf (see man pages)
 
+INSTALL OH-MY-FISH
+------------------
+curl -L https://get.oh-my.fish | fish
 
 
 
